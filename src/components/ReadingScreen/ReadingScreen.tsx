@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './ReadingScreen.css';
 import { majorArcana } from '../../data/cards';
 import type { CardData } from '../../data/cards';
@@ -23,20 +23,9 @@ const ReadingScreen: React.FC = () => {
   const [drawnCards, setDrawnCards] = useState<DrawnCard[]>([]);
   const [areCardsFlipped, setAreCardsFlipped] = useState(false);
   const [isShuffling, setIsShuffling] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   // 新增一個陣列來追蹤哪些卡片已被翻開
   const [flippedCardIndices, setFlippedCardIndices] = useState<number[]>([]);
-
-  // 監聽視窗大小變化以實現 RWD
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   // 演算法：Fisher-Yates 洗牌
   const shuffleDeck = () => {
