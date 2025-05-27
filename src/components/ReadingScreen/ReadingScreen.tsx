@@ -203,7 +203,6 @@ const ReadingScreen: React.FC = () => {
         );
 
   case 'reading':
-    const isMobile = windowWidth < 768;
     const spreadLayoutClass = getSpreadLayoutClassName();
     
     // 檢查是否所有卡片已經被單獨翻開
